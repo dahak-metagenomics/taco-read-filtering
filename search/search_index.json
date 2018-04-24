@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "taco-read-filtering\n\u00b6\n\n\nThis repository implements a read filtering workflow for \n\ndahak-taco\n.\n\n\nQuick Start\n\u00b6\n\n\nList Available Actions\n\u00b6\n\n\ntaco ls             # List available workflows\n\ntaco ls workflow1   # List rules in workflow 1\n\ntaco ls workflow2   # List rules in workflow 2\n\n\n\n\n\nRun Workflow\n\u00b6\n\n\nInclude the \n-n\n flag to do a dry run first.\n\n\ntaco requires the \n--config-json\n and \n--params-json\n \nflags to point to the configuration and parameter\nJSON/YAML files.\n\n\ntaco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json\n\n\n\n\n\nTo run the workflow:\n\n\ntaco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json\n\n\n\n\n\nDetails\n\u00b6\n\n\nrules/\n Directory\n\u00b6\n\n\nThe rules directory contains one folder per workflow.\n\n\nEach workflow folder must include a \nSnakefile\n.\nIt is recommended to structure Snakefiles so that \nthey import individual rule files. Individual rule\nfiles then use workflow parameters from the parameters\nfile the user passed in.\n\n\nworkflow-config\n Directory\n\u00b6\n\n\nThe config files define the target files or rules for Snakemake to run.\n\n\nworkflow-params\n Directory\n\u00b6\n\n\nThe parameter files define values for the workflow parameters \nused to define the Snakemake rules.\n\n\nLinks\n\u00b6\n\n\ndahak-taco documentation\n\n\ndahak-taco github repo\n\n\ntaco-simple github repo",
+            "title": "Index"
+        },
+        {
+            "location": "/#taco-read-filtering",
+            "text": "This repository implements a read filtering workflow for  dahak-taco .",
+            "title": "taco-read-filtering"
+        },
+        {
+            "location": "/#quick-start",
+            "text": "",
+            "title": "Quick Start"
+        },
+        {
+            "location": "/#list-available-actions",
+            "text": "taco ls             # List available workflows\n\ntaco ls workflow1   # List rules in workflow 1\n\ntaco ls workflow2   # List rules in workflow 2",
+            "title": "List Available Actions"
+        },
+        {
+            "location": "/#run-workflow",
+            "text": "Include the  -n  flag to do a dry run first.  taco requires the  --config-json  and  --params-json  \nflags to point to the configuration and parameter\nJSON/YAML files.  taco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json  To run the workflow:  taco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json",
+            "title": "Run Workflow"
+        },
+        {
+            "location": "/#details",
+            "text": "",
+            "title": "Details"
+        },
+        {
+            "location": "/#rules-directory",
+            "text": "The rules directory contains one folder per workflow.  Each workflow folder must include a  Snakefile .\nIt is recommended to structure Snakefiles so that \nthey import individual rule files. Individual rule\nfiles then use workflow parameters from the parameters\nfile the user passed in.",
+            "title": "rules/ Directory"
+        },
+        {
+            "location": "/#workflow-config-directory",
+            "text": "The config files define the target files or rules for Snakemake to run.",
+            "title": "workflow-config Directory"
+        },
+        {
+            "location": "/#workflow-params-directory",
+            "text": "The parameter files define values for the workflow parameters \nused to define the Snakemake rules.",
+            "title": "workflow-params Directory"
+        },
+        {
+            "location": "/#links",
+            "text": "dahak-taco documentation  dahak-taco github repo  taco-simple github repo",
+            "title": "Links"
+        }
+    ]
+}

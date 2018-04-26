@@ -36,6 +36,7 @@ extra_css:
 # give a title for each page
 pages:
   - 'Index' : 'index.md'
+  - 'Read Filtering' : 'ReadFiltering.md'
 
 # Extensions
 markdown_extensions:

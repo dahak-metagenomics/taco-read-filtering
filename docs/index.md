@@ -1,95 +1,58 @@
 # taco-read-filtering
 
-This repository implements a read filtering workflow for 
-[dahak-taco](https://github.com/dahak-metagenomics/dahak-taco).
+This repository implements several simple Snakemake workflows
+("hello world" style) to illustrate how to define a 
+[dahak-taco](https://github.com/dahak-metagenomics/dahak-taco)
+workflow.
+
+
+## Setting Up Taco
+
+Before you can run this workflow, you must first 
+install `taco`. See [dahak-taco documentation](https://dahak-metagenomics.github.io/dahak-taco)
+for installation instructions.
+
+Once `taco` is installed, it will be available on the 
+command line. The `taco` commands covered in this document
+should be run from the main workflow repository directory. 
+
+
+## What's In This Repository
+
+Workflow files:
+
+* rules
+* workflow-config
+* workflow-params
+* docker
+
+Documentation files:
+
+* docs
+* mkdocs-material-dib
+* mkdocs.yml
+
+
+## Workflows
+
+List of workflows:
+
+[Read Filtering Workflow](ReadFiltering.md)
+    
+[Read Filtering Workflow Rules](ReadFiltering.md#Rules)
+
+[Read Filtering Workflow Parameters](ReadFilteringParams.md)
+    
+[Read Filtering Workflow Configuration](ReadFilteringConfig.md)
 
 
 
-# Quick Start
-
-## List Available Actions
-
-```
-taco ls             # List available workflows
-
-taco ls workflow1   # List rules in workflow 1
-
-taco ls workflow2   # List rules in workflow 2
-```
-
-## Run Workflow
-
-Include the `-n` flag to do a dry run first.
-
-taco requires the `--config-json` and `--params-json` 
-flags to point to the configuration and parameter
-JSON/YAML files.
-
-```
-taco -n workflow1 \
-    --config-json=workflow-config/config_step1.json \
-    --params-json=workflow-params/params_step1.json
-
-taco -n workflow2 \
-    --config-json=workflow-config/config_step2.json \
-    --params-json=workflow-params/params_step2.json
-
-...etc...
-
-taco -n workflow6 \
-    --config-json=workflow-config/config_step6.json \
-    --params-json=workflow-params/params_step6.json
-```
-
-To run the workflow:
-
-```
-taco -n workflow1 \
-    --config-json=workflow-config/config_step1.json \
-    --params-json=workflow-params/params_step1.json
-
-taco -n workflow2 \
-    --config-json=workflow-config/config_step2.json \
-    --params-json=workflow-params/params_step2.json
-
-...etc...
-
-taco -n workflow6 \
-    --config-json=workflow-config/config_step6.json \
-    --params-json=workflow-params/params_step6.json
-```
 
 
 
-# Details
-
-## `rules/` Directory
-
-The rules directory contains one folder per workflow.
-
-Each workflow folder must include a `Snakefile`.
-It is recommended to structure Snakefiles so that 
-they import individual rule files. Individual rule
-files then use workflow parameters from the parameters
-file the user passed in.
-
-## `workflow-config` Directory
-
-The config files define the target files or rules for Snakemake to run.
-
-## `workflow-params` Directory
-
-The parameter files define values for the workflow parameters 
-used to define the Snakemake rules.
 
 
 
-# Links
 
-[dahak-taco documentation](https://dahak-metagenomics.github.io/dahak-taco/)
-
-[dahak-taco github repo](https://github.com/dahak-metagenomics/dahak-taco)
-
-[taco-simple github repo](https://github.com/dahak-metagenomics/taco-simple)
 
 

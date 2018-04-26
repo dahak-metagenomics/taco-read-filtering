@@ -2,53 +2,53 @@
     "docs": [
         {
             "location": "/",
-            "text": "taco-read-filtering\n\u00b6\n\n\nThis repository implements a read filtering workflow for \n\ndahak-taco\n.\n\n\nQuick Start\n\u00b6\n\n\nList Available Actions\n\u00b6\n\n\ntaco ls             # List available workflows\n\ntaco ls workflow1   # List rules in workflow 1\n\ntaco ls workflow2   # List rules in workflow 2\n\n\n\n\n\nRun Workflow\n\u00b6\n\n\nInclude the \n-n\n flag to do a dry run first.\n\n\ntaco requires the \n--config-json\n and \n--params-json\n \nflags to point to the configuration and parameter\nJSON/YAML files.\n\n\ntaco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json\n\n\n\n\n\nTo run the workflow:\n\n\ntaco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json\n\n\n\n\n\nDetails\n\u00b6\n\n\nrules/\n Directory\n\u00b6\n\n\nThe rules directory contains one folder per workflow.\n\n\nEach workflow folder must include a \nSnakefile\n.\nIt is recommended to structure Snakefiles so that \nthey import individual rule files. Individual rule\nfiles then use workflow parameters from the parameters\nfile the user passed in.\n\n\nworkflow-config\n Directory\n\u00b6\n\n\nThe config files define the target files or rules for Snakemake to run.\n\n\nworkflow-params\n Directory\n\u00b6\n\n\nThe parameter files define values for the workflow parameters \nused to define the Snakemake rules.\n\n\nLinks\n\u00b6\n\n\ndahak-taco documentation\n\n\ndahak-taco github repo\n\n\ntaco-simple github repo",
+            "text": "taco-read-filtering\n\u00b6\n\n\nThis repository implements several simple Snakemake workflows\n(\"hello world\" style) to illustrate how to define a \n\ndahak-taco\n\nworkflow.\n\n\nSetting Up Taco\n\u00b6\n\n\nBefore you can run this workflow, you must first \ninstall \ntaco\n. See \ndahak-taco documentation\n\nfor installation instructions.\n\n\nOnce \ntaco\n is installed, it will be available on the \ncommand line. The \ntaco\n commands covered in this document\nshould be run from the main workflow repository directory. \n\n\nWhat's In This Repository\n\u00b6\n\n\nWorkflow files:\n\n\n\n\nrules\n\n\nworkflow-config\n\n\nworkflow-params\n\n\ndocker\n\n\n\n\nDocumentation files:\n\n\n\n\ndocs\n\n\nmkdocs-material-dib\n\n\nmkdocs.yml\n\n\n\n\nWorkflows\n\u00b6\n\n\nList of workflows:\n\n\nRead Filtering Workflow\n\n\nRead Filtering Workflow Rules\n\n\nRead Filtering Workflow Parameters\n\n\nRead Filtering Workflow Configuration",
             "title": "Index"
         },
         {
             "location": "/#taco-read-filtering",
-            "text": "This repository implements a read filtering workflow for  dahak-taco .",
+            "text": "This repository implements several simple Snakemake workflows\n(\"hello world\" style) to illustrate how to define a  dahak-taco \nworkflow.",
             "title": "taco-read-filtering"
         },
         {
-            "location": "/#quick-start",
-            "text": "",
+            "location": "/#setting-up-taco",
+            "text": "Before you can run this workflow, you must first \ninstall  taco . See  dahak-taco documentation \nfor installation instructions.  Once  taco  is installed, it will be available on the \ncommand line. The  taco  commands covered in this document\nshould be run from the main workflow repository directory.",
+            "title": "Setting Up Taco"
+        },
+        {
+            "location": "/#whats-in-this-repository",
+            "text": "Workflow files:   rules  workflow-config  workflow-params  docker   Documentation files:   docs  mkdocs-material-dib  mkdocs.yml",
+            "title": "What's In This Repository"
+        },
+        {
+            "location": "/#workflows",
+            "text": "List of workflows:  Read Filtering Workflow  Read Filtering Workflow Rules  Read Filtering Workflow Parameters  Read Filtering Workflow Configuration",
+            "title": "Workflows"
+        },
+        {
+            "location": "/ReadFiltering/",
+            "text": "Read Filtering Workflow\n\u00b6\n\n\nThe \nread_filtering\n workflow uses \n\nfastq\n and \ntrimmomatic\n to assess\nthe quality of sequencer reads and \nfilter out low-quality reads.\n\n\nThe user has control over the names \nand URLs of sequence data that is \ndownloaded, as well as parameters like\nthe quality threshold.\n\n\nQuick Start\n\u00b6\n\n\nTo list available workflows (only one):\n\n\n$ taco ls\n\n\n\n\n\nTo get rules defined by the workflow:\n\n\n$ taco ls read_filtering\n\n\n\n\n\nTo run the workflow using the provided\nworkflow config and parameter files,\n\n\n$ taco read_filtering \\\n    --config-yaml=workflow-config/config_step1.yaml \\\n    --params-yaml=workflow-params/config_step1.yaml\n\n\n\n\n\nBy default, this will generate output files in the \ndata/\n directory.\nTo change the output directory, use the \n--prefix\n flag:\n\n\n$ taco --prefix=my_data read_filtering \\\n    --config-yaml=workflow-config/config_step1.yaml \\\n    --params-yaml=workflow-params/config_step1.yaml\n\n\n\n\n\nIf the directory does not exist, it will be created.\n\n\nWorkflow Rules\n\u00b6\n\n\nOutput of \ntaco ls read_filtering\n: \n\n\npull_biocontainers\n\n    Pull the required versions of containers from quay.io.\n\ndownload_reads\n\n    Fetch user-requested files from OSF\n    containing reads that will be used\n    in the read filtering process.\n\n    Note that this should define wildcard-based\n    rules, rather than downloading all files\n    at once, to keep things flexible and fast.\n\ndownload_read_adapter\n\n    Download FASTA read adapaters.\n    This downloads adpaters for\n    the TruSeq2-PE sequencer by default.\n\npre_trimming_quality_assessment\n\n    Perform a pre-trimming quality check\n    of the reads from the sequencer.\n\npost_trimming_quality_assessment\n\n    Perform a post-trimming quality check\n    of the reads from the sequencer.\n\nquality_trimming\n\n    Trim reads from the sequencer by dropping low-quality reads.\n\ninterleave_reads\n\n    Interleave paired-end reads using khmer.\n    The trim quality comes from the filename.\n\n\n\n\n\nWorkflow Parameters\n\u00b6\n\n\nDefault parameter dictionary defined in \nread_filtering.settings\n:\n\n\n{\n    \"short_description\": \"Read Filtering Walkthrough 1 - Fetching Reads - Parameters\",\n    \"read_filtering\" : {\n        \"read_files\" : {\n            \"SRR606249_1.fq.gz\" :           \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f0f9156c613b026430dbc7\",\n            \"SRR606249_2.fq.gz\" :           \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f0fc7fb83f69026076be47\",\n            \"SRR606249_subset10_1.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f10134b83f69026377611b\",\n            \"SRR606249_subset10_2.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f101f26c613b026330e53a\",\n            \"SRR606249_subset25_1.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f1039a594d900263120c38\",\n            \"SRR606249_subset25_2.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f104ed594d90026411f486\",\n            \"SRR606249_subset50_1.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f1082d6c613b026430e5cf\",\n            \"SRR606249_subset50_2.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f10ac6594d900262123e77\"\n        },\n        \"read_patterns\" : {\n            \"pre_trimming_pattern\"  : \"{sample}_{direction}.fq.gz\"\n        }\n    }\n}",
+            "title": "Read Filtering"
+        },
+        {
+            "location": "/ReadFiltering/#read-filtering-workflow",
+            "text": "The  read_filtering  workflow uses  fastq  and  trimmomatic  to assess\nthe quality of sequencer reads and \nfilter out low-quality reads.  The user has control over the names \nand URLs of sequence data that is \ndownloaded, as well as parameters like\nthe quality threshold.",
+            "title": "Read Filtering Workflow"
+        },
+        {
+            "location": "/ReadFiltering/#quick-start",
+            "text": "To list available workflows (only one):  $ taco ls  To get rules defined by the workflow:  $ taco ls read_filtering  To run the workflow using the provided\nworkflow config and parameter files,  $ taco read_filtering \\\n    --config-yaml=workflow-config/config_step1.yaml \\\n    --params-yaml=workflow-params/config_step1.yaml  By default, this will generate output files in the  data/  directory.\nTo change the output directory, use the  --prefix  flag:  $ taco --prefix=my_data read_filtering \\\n    --config-yaml=workflow-config/config_step1.yaml \\\n    --params-yaml=workflow-params/config_step1.yaml  If the directory does not exist, it will be created.",
             "title": "Quick Start"
         },
         {
-            "location": "/#list-available-actions",
-            "text": "taco ls             # List available workflows\n\ntaco ls workflow1   # List rules in workflow 1\n\ntaco ls workflow2   # List rules in workflow 2",
-            "title": "List Available Actions"
+            "location": "/ReadFiltering/#workflow-rules",
+            "text": "Output of  taco ls read_filtering :   pull_biocontainers\n\n    Pull the required versions of containers from quay.io.\n\ndownload_reads\n\n    Fetch user-requested files from OSF\n    containing reads that will be used\n    in the read filtering process.\n\n    Note that this should define wildcard-based\n    rules, rather than downloading all files\n    at once, to keep things flexible and fast.\n\ndownload_read_adapter\n\n    Download FASTA read adapaters.\n    This downloads adpaters for\n    the TruSeq2-PE sequencer by default.\n\npre_trimming_quality_assessment\n\n    Perform a pre-trimming quality check\n    of the reads from the sequencer.\n\npost_trimming_quality_assessment\n\n    Perform a post-trimming quality check\n    of the reads from the sequencer.\n\nquality_trimming\n\n    Trim reads from the sequencer by dropping low-quality reads.\n\ninterleave_reads\n\n    Interleave paired-end reads using khmer.\n    The trim quality comes from the filename.",
+            "title": "Workflow Rules"
         },
         {
-            "location": "/#run-workflow",
-            "text": "Include the  -n  flag to do a dry run first.  taco requires the  --config-json  and  --params-json  \nflags to point to the configuration and parameter\nJSON/YAML files.  taco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json  To run the workflow:  taco -n workflow1 \\\n    --config-json=workflow-config/config_step1.json \\\n    --params-json=workflow-params/params_step1.json\n\ntaco -n workflow2 \\\n    --config-json=workflow-config/config_step2.json \\\n    --params-json=workflow-params/params_step2.json\n\n...etc...\n\ntaco -n workflow6 \\\n    --config-json=workflow-config/config_step6.json \\\n    --params-json=workflow-params/params_step6.json",
-            "title": "Run Workflow"
-        },
-        {
-            "location": "/#details",
-            "text": "",
-            "title": "Details"
-        },
-        {
-            "location": "/#rules-directory",
-            "text": "The rules directory contains one folder per workflow.  Each workflow folder must include a  Snakefile .\nIt is recommended to structure Snakefiles so that \nthey import individual rule files. Individual rule\nfiles then use workflow parameters from the parameters\nfile the user passed in.",
-            "title": "rules/ Directory"
-        },
-        {
-            "location": "/#workflow-config-directory",
-            "text": "The config files define the target files or rules for Snakemake to run.",
-            "title": "workflow-config Directory"
-        },
-        {
-            "location": "/#workflow-params-directory",
-            "text": "The parameter files define values for the workflow parameters \nused to define the Snakemake rules.",
-            "title": "workflow-params Directory"
-        },
-        {
-            "location": "/#links",
-            "text": "dahak-taco documentation  dahak-taco github repo  taco-simple github repo",
-            "title": "Links"
+            "location": "/ReadFiltering/#workflow-parameters",
+            "text": "Default parameter dictionary defined in  read_filtering.settings :  {\n    \"short_description\": \"Read Filtering Walkthrough 1 - Fetching Reads - Parameters\",\n    \"read_filtering\" : {\n        \"read_files\" : {\n            \"SRR606249_1.fq.gz\" :           \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f0f9156c613b026430dbc7\",\n            \"SRR606249_2.fq.gz\" :           \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f0fc7fb83f69026076be47\",\n            \"SRR606249_subset10_1.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f10134b83f69026377611b\",\n            \"SRR606249_subset10_2.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f101f26c613b026330e53a\",\n            \"SRR606249_subset25_1.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f1039a594d900263120c38\",\n            \"SRR606249_subset25_2.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f104ed594d90026411f486\",\n            \"SRR606249_subset50_1.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f1082d6c613b026430e5cf\",\n            \"SRR606249_subset50_2.fq.gz\" :  \"files.osf.io/v1/resources/dm938/providers/osfstorage/59f10ac6594d900262123e77\"\n        },\n        \"read_patterns\" : {\n            \"pre_trimming_pattern\"  : \"{sample}_{direction}.fq.gz\"\n        }\n    }\n}",
+            "title": "Workflow Parameters"
         }
     ]
 }

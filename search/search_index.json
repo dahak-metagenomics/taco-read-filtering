@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "taco-read-filtering\n\u00b6\n\n\nThis repository implements several simple Snakemake workflows\n(\"hello world\" style) to illustrate how to define a \n\ndahak-taco\n\nworkflow.\n\n\nSetting Up Taco\n\u00b6\n\n\nBefore you can run this workflow, you must first \ninstall \ntaco\n. See \ndahak-taco documentation\n\nfor installation instructions.\n\n\nOnce \ntaco\n is installed, it will be available on the \ncommand line. The \ntaco\n commands covered in this document\nshould be run from the main workflow repository directory. \n\n\nWhat's In This Repository\n\u00b6\n\n\nWorkflow files:\n\n\n\n\nrules\n\n\nworkflow-config\n\n\nworkflow-params\n\n\ndocker\n\n\n\n\nDocumentation files:\n\n\n\n\ndocs\n\n\nmkdocs-material-dib\n\n\nmkdocs.yml\n\n\n\n\nWorkflows\n\u00b6\n\n\nList of workflows:\n\n\nRead Filtering Workflow\n\n\nRead Filtering Workflow Rules\n\n\nRead Filtering Workflow Parameters\n\n\nRead Filtering Workflow Configuration",
+            "text": "taco-read-filtering\n\u00b6\n\n\nThis repository implements several simple Snakemake workflows\n(\"hello world\" style) to illustrate how to define a \n\ndahak-taco\n\nworkflow.\n\n\nSetting Up Taco\n\u00b6\n\n\nBefore you can run this workflow, you must first \ninstall \ntaco\n. See \ndahak-taco documentation\n\nfor installation instructions.\n\n\nOnce \ntaco\n is installed, it will be available on the \ncommand line. The \ntaco\n commands covered in this document\nshould be run from the main workflow repository directory. \n\n\nWhat's In This Repository\n\u00b6\n\n\nWorkflow files:\n\n\n\n\nrules\n\n\nworkflow-config\n\n\nworkflow-params\n\n\ndocker\n\n\n\n\nDocumentation files:\n\n\n\n\ndocs\n\n\nmkdocs-material-dib\n\n\nmkdocs.yml\n\n\n\n\nWorkflow\n\u00b6\n\n\nPages describing the three parts of the workflow:\n\n\nRead Filtering Workflow\n\n\n\n\n\n\nRead Filtering Workflow Rules\n\n\n\n\n\n\nRead Filtering Workflow Parameters\n\n\n\n\n\n\nRead Filtering Workflow Configuration",
             "title": "Index"
         },
         {
@@ -21,9 +21,9 @@
             "title": "What's In This Repository"
         },
         {
-            "location": "/#workflows",
-            "text": "List of workflows:  Read Filtering Workflow  Read Filtering Workflow Rules  Read Filtering Workflow Parameters  Read Filtering Workflow Configuration",
-            "title": "Workflows"
+            "location": "/#workflow",
+            "text": "Pages describing the three parts of the workflow:  Read Filtering Workflow    Read Filtering Workflow Rules    Read Filtering Workflow Parameters    Read Filtering Workflow Configuration",
+            "title": "Workflow"
         },
         {
             "location": "/ReadFiltering/",

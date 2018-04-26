@@ -33,26 +33,16 @@ Documentation files:
 * mkdocs.yml
 
 
-## Workflows
+## Workflow
 
-List of workflows:
+Pages describing the three parts of the workflow:
 
 [Read Filtering Workflow](ReadFiltering.md)
     
-[Read Filtering Workflow Rules](ReadFiltering.md#Rules)
+* [Read Filtering Workflow Rules](ReadFiltering.md#workflow-rules)
 
-[Read Filtering Workflow Parameters](ReadFilteringParams.md)
+* [Read Filtering Workflow Parameters](ReadFiltering.md#workflow-parameters)
     
-[Read Filtering Workflow Configuration](ReadFilteringConfig.md)
-
-
-
-
-
-
-
-
-
-
+* [Read Filtering Workflow Configuration](ReadFiltering.md#workflow-rules)
 
 

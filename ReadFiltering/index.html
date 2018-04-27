@@ -284,20 +284,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#workflow-rules" title="Workflow Rules" class="md-nav__link">
-    Workflow Rules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-parameters" title="Workflow Parameters" class="md-nav__link">
-    Workflow Parameters
-  </a>
-  
-</li>
-      
       
       
       
@@ -306,6 +292,42 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ReadFilteringRules/" title="Read Filtering: Rules" class="md-nav__link">
+      Read Filtering: Rules
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ReadFilteringConfig/" title="Read Filtering: Configuration" class="md-nav__link">
+      Read Filtering: Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ReadFilteringParams/" title="Read Filtering: Parameterss" class="md-nav__link">
+      Read Filtering: Parameterss
+    </a>
   </li>
 
     
@@ -332,20 +354,6 @@
         <li class="md-nav__item">
   <a href="#quick-start" title="Quick Start" class="md-nav__link">
     Quick Start
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-rules" title="Workflow Rules" class="md-nav__link">
-    Workflow Rules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-parameters" title="Workflow Parameters" class="md-nav__link">
-    Workflow Parameters
   </a>
   
 </li>
@@ -404,70 +412,11 @@ To change the output directory, use the <code>--prefix</code> flag:</p>
 
 
 <p>If the directory does not exist, it will be created.</p>
-<h2 id="workflow-rules">Workflow Rules<a class="headerlink" href="#workflow-rules" title="Permanent link">&para;</a></h2>
-<p>Output of <code>taco ls read_filtering</code>: </p>
-<div class="codehilite"><pre><span></span>pull_biocontainers
-
-    Pull the required versions of containers from quay.io.
-
-download_reads
-
-    Fetch user-requested files from OSF
-    containing reads that will be used
-    in the read filtering process.
-
-    Note that this should define wildcard-based
-    rules, rather than downloading all files
-    at once, to keep things flexible and fast.
-
-download_read_adapter
-
-    Download FASTA read adapaters.
-    This downloads adpaters for
-    the TruSeq2-PE sequencer by default.
-
-pre_trimming_quality_assessment
-
-    Perform a pre-trimming quality check
-    of the reads from the sequencer.
-
-post_trimming_quality_assessment
-
-    Perform a post-trimming quality check
-    of the reads from the sequencer.
-
-quality_trimming
-
-    Trim reads from the sequencer by dropping low-quality reads.
-
-interleave_reads
-
-    Interleave paired-end reads using khmer.
-    The trim quality comes from the filename.
-</pre></div>
-
-
-<h2 id="workflow-parameters">Workflow Parameters<a class="headerlink" href="#workflow-parameters" title="Permanent link">&para;</a></h2>
-<p>Default parameter dictionary defined in <code>read_filtering.settings</code>:</p>
-<div class="codehilite"><pre><span></span>{
-    &quot;short_description&quot;: &quot;Read Filtering Walkthrough 1 - Fetching Reads - Parameters&quot;,
-    &quot;read_filtering&quot; : {
-        &quot;read_files&quot; : {
-            &quot;SRR606249_1.fq.gz&quot; :           &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f0f9156c613b026430dbc7&quot;,
-            &quot;SRR606249_2.fq.gz&quot; :           &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f0fc7fb83f69026076be47&quot;,
-            &quot;SRR606249_subset10_1.fq.gz&quot; :  &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f10134b83f69026377611b&quot;,
-            &quot;SRR606249_subset10_2.fq.gz&quot; :  &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f101f26c613b026330e53a&quot;,
-            &quot;SRR606249_subset25_1.fq.gz&quot; :  &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f1039a594d900263120c38&quot;,
-            &quot;SRR606249_subset25_2.fq.gz&quot; :  &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f104ed594d90026411f486&quot;,
-            &quot;SRR606249_subset50_1.fq.gz&quot; :  &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f1082d6c613b026430e5cf&quot;,
-            &quot;SRR606249_subset50_2.fq.gz&quot; :  &quot;files.osf.io/v1/resources/dm938/providers/osfstorage/59f10ac6594d900262123e77&quot;
-        },
-        &quot;read_patterns&quot; : {
-            &quot;pre_trimming_pattern&quot;  : &quot;{sample}_{direction}.fq.gz&quot;
-        }
-    }
-}
-</pre></div>
+<p>Continue reading for more details about how to determine
+what rules a workflow defines, how to set parameters
+for the read filtering workflow, and the various 
+target files that are useful for the workflow config
+file.</p>
                 
                   
                 
@@ -502,6 +451,20 @@ interleave_reads
             </div>
           </a>
         
+        
+          <a href="../ReadFilteringRules/" title="Read Filtering: Rules" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Read Filtering: Rules
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

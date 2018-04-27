@@ -37,6 +37,9 @@ extra_css:
 pages:
   - 'Index' : 'index.md'
   - 'Read Filtering' : 'ReadFiltering.md'
+  - 'Read Filtering: Rules' : 'ReadFilteringRules.md'
+  - 'Read Filtering: Configuration' : 'ReadFilteringConfig.md'
+  - 'Read Filtering: Parameterss' : 'ReadFilteringParams.md'
 
 # Extensions
 markdown_extensions:

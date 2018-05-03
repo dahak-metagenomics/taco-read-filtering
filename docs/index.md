@@ -18,6 +18,7 @@ In this documentation we will cover:
 We will not cover:
 
 * How to install `taco`
+
 * The basics of `taco` 
 
 For those, see the [dahak-taco documentation](https://dahak-metagenomics.github.io/dahak-taco).
@@ -37,12 +38,17 @@ should be run from the top-level directory of this repository
 
 ## What's In This Repository
 
+Required directories:
+
+* `rules/` - contains rule and workflow definitions (REQUIRED)
+
 Workflow files:
 
-* `rules/` - contains rule and workflow definitions
 * `workflow-config/` - contains workflow configuration files
 * `workflow-params/` - contains workflow parameter files
 * `docker/` - contains custom Docker images for use in taco workflows
+* `my-workflow-files/` - directory containing config/param/docker files 
+    that should be kept together
 
 Documentation files:
 
